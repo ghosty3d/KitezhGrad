@@ -1,0 +1,28 @@
+{
+	"ID": 1,
+	"Name": "Test Level",
+	"Doors":
+	[
+		{
+			"ID": 1,
+			"IsLocked": true,
+			"KeyID": 5
+		}
+	],
+	"Items":	
+	[
+		{
+			"ID": 5,
+			"Name": "Key From That Door",
+			"Description": "Allow's you open some door.",
+			"Type": "Key",
+			"Obtained": false
+		}
+	],
+	"Enemies":
+	[
+		{
+
+		}
+	]
+}
