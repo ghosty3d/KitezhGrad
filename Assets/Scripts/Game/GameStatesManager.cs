@@ -10,6 +10,7 @@ public class GameStatesManager : MonoBehaviour
     //Game States
     public GamePlayState m_GamePlayState;
     public TextState m_TextState;
+    public GameDocumentState m_DocumentState;
 
     void Awake()
     {
@@ -17,6 +18,7 @@ public class GameStatesManager : MonoBehaviour
 
         m_GamePlayState = new GamePlayState();
         m_TextState = new TextState();
+        m_DocumentState = new GameDocumentState();
 
         m_CurrentGameState = m_GamePlayState;
     }
@@ -31,17 +33,24 @@ public class GameStatesManager : MonoBehaviour
 
     public void SetGamePlayState()
     {
-        m_TextState.DisableState();
-
+        m_CurrentGameState.DisableState();
         m_CurrentGameState = m_GamePlayState;
         m_CurrentGameState.EnableState();
     }
 
     public void SetTextState()
     {
-        m_GamePlayState.DisableState();
-
+        m_CurrentGameState.DisableState();
         m_CurrentGameState = m_TextState;
+        m_CurrentGameState.EnableState();
+    }
+
+    public void SetDocumentState()
+    {
+        Debug.Log("Now is Document State!");
+
+        m_CurrentGameState.DisableState();
+        m_CurrentGameState = m_DocumentState;
         m_CurrentGameState.EnableState();
     }
 }

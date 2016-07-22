@@ -9,10 +9,12 @@ public class InteractibleAsset : MonoBehaviour
     {
         if (other.tag == "Player" && Input.GetButtonDown("Action"))
         {
-            GameCanvas.Instance.ShowMessageArea();
-            GameCanvas.Instance.m_MessagesPanel.ShowTextMessage(m_AssetMessage);
-
-            GameStatesManager.Instance.SetTextState();
+            if (GameStatesManager.Instance.m_CurrentGameState != GameStatesManager.Instance.m_TextState)
+            {
+                GameCanvas.Instance.ShowMessageArea();
+                GameCanvas.Instance.m_MessagesPanel.ShowTextMessage(m_AssetMessage);
+                GameStatesManager.Instance.SetTextState();  
+            }
         }
     }
 }
